@@ -1,0 +1,83 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMA91JU/sKj2aCVfUyJxhWb",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/kanish03-varshini/Nanmudhaval-project/blob/main/spam%20detector\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ob5kbdsQcQI8",
+        "outputId": "c60a8eb4-676c-4b17-f681-f2281b80fd13"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The message is: You've just received a free gift card!\n",
+            "Prediction: spam\n"
+          ]
+        }
+      ],
+      "source": [
+        "from sklearn.model_selection import train_test_split\n",
+        "from sklearn.feature_extraction.text import CountVectorizer\n",
+        "from sklearn.naive_bayes import MultinomialNB\n",
+        "from sklearn.pipeline import make_pipeline\n",
+        "\n",
+        "# Sample dataset (text and labels)\n",
+        "messages = [\n",
+        "    \"Congratulations! You've won a $1000 gift card!\",\n",
+        "    \"Hi, I hope you're doing well. Can we reschedule our meeting?\",\n",
+        "    \"Get a free iPhone! Limited time offer.\",\n",
+        "    \"Let's catch up soon, looking forward to our meeting.\",\n",
+        "    \"You have been selected for a special prize! Claim it now.\"\n",
+        "]\n",
+        "labels = ['spam', 'ham', 'spam', 'ham', 'spam']  # Corresponding labels\n",
+        "\n",
+        "# Split dataset into training and testing sets\n",
+        "X_train, X_test, y_train, y_test = train_test_split(messages, labels, test_size=0.3, random_state=42)\n",
+        "\n",
+        "# Create a pipeline with a CountVectorizer (to convert text to numbers) and Naive Bayes classifier\n",
+        "model = make_pipeline(CountVectorizer(), MultinomialNB())\n",
+        "\n",
+        "# Train the model\n",
+        "model.fit(X_train, y_train)\n",
+        "\n",
+        "# Now, test the model with new data (input message)\n",
+        "new_message = [\"You've just received a free gift card!\"]\n",
+        "prediction = model.predict(new_message)\n",
+        "\n",
+        "print(f\"The message is: {new_message[0]}\")\n",
+        "print(f\"Prediction: {prediction[0]}\")  # Output: spam or ham\n"
+      ]
+    }
+  ]
+}
