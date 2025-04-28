@@ -1,0 +1,124 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPFwFVLKpwix0/bzeGf6nfD",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/kanish03-varshini/Nanmudhaval-project/blob/main/News%20summarizer\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BzTAK4tSzbYB",
+        "outputId": "653ba8e0-b88c-4dbb-8edd-1c9966084435"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/42.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m42.0/42.0 kB\u001b[0m \u001b[31m1.1 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25h"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "<ipython-input-1-d940c95b94b3>:25: LangChainDeprecationWarning: Please see the migration guide at: https://python.langchain.com/docs/versions/migrating_memory/\n",
+            "  memory = ConversationBufferMemory(memory_key=\"chat_history\", return_messages=True)\n",
+            "<ipython-input-1-d940c95b94b3>:34: LangChainDeprecationWarning: The class `LLMChain` was deprecated in LangChain 0.1.17 and will be removed in 1.0. Use :meth:`~RunnableSequence, e.g., `prompt | llm`` instead.\n",
+            "  chain = LLMChain(\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "📰 Enter news text to summarize (or type 'exit' to quit): A lack of broadly applicable methods to precisely control therapeutic gene expression is a key challenge for gene therapies. We present a technology that offers a photoactivatable RNA base editor for tunable and reversible regulation of gene expression, with implications for improving the safety and efficacy of gene therapy.  The problem Although exogenous gene expression methods have shown substantial success in gene and cell therapy, precise and reproducible control of transgene expression remains a challenge. RNA-targeting approaches offer greater flexibility in regulating protein levels compared with DNA editing, which permanently changes the codon. This flexibility makes RNA editing a promising approach for precise and highly controlled gene therapy1. Among various RNA-targeting approaches2, programmable RNA base editing holds promise for regulating target gene activity regardless of exogenous or endogenous RNA3. A common approach to RNA base editing involves the use of adenosine deaminases acting on RNA (ADAR) — enzymes that catalyze the conversion of adenosines to inosines (A-to-I conversion). However, such technologies face challenges in the spatiotemporal control over base editing, as ADARs are constitutively expressed. Several inducible RNA base editors have been developed4,5; however, chemically inducible systems face limitations due to rapid diffusion, prolonged metabolism of small molecules, and potential side effects. Light-inducible editing has emerged as a promising approach, but high baseline activity in the absence of illumination and low induction activity under light exposure limit its application. Moreover, all existing RNA base editors raise concerns about uncontrolled deaminase activity, which could lead to off-target effects and unintended side effects.The solution We developed a photoactivatable RNA adenosine base editor (PA-rABE), which combines a mini dCas13X protein with a split ADAR2 enzyme fused to either a positive Magnet (pMag) or negative Magnet (nMag). In the presence of blue light, pMag and nMag dimerize, bringing together the two halves of ADAR2 protein into a functional enzyme (Fig. 1a). Our approach offers three major advantages over previous techniques. First, deaminase activity can be tightly regulated by controlling the light source, allowing RNA base editing to occur only in the presence of blue light. Second, such precise control results in fewer transcriptome-wide off-target effects than with previous light-inducible RNA base editors, thereby reducing the risk of unwanted RNA editing across the transcriptome. This minimizes potential side effects, such as those associated with the previously observed overactivity of ADAR1 in cancers6. Third, exogenous and endogenous genes can be inducibly activated or inactivated simultaneously. Overall, our approach is an important step towards more stringent and safer RNA editing for future applications.We found that PA-rABE showed comparable or superior A-to-I editing efficiencies compared with those of existing RNA base editors. Moreover, whole-transcriptome profiling revealed that PA-rABE had significantly fewer off-targets than other light-inducible RNA technologies. We further demonstrated that PA-rABE can activate both exogenous and endogenous genes in vivo in mice using different delivery methods. In a proof-of-concept experiment, we used a clinically relevant AAV delivery system in which PA-rABE successfully edited a stop codon in the exogenous F9 gene to restore its expression and ameliorate clotting defects in hemophilia B mice (Fig. 1b). Overall, these findings highlight the potential of PA-rABE as a tool for precisely regulating gene expression, offering a way to customize treatments on the basis of a patient’s disease stage or severity.\n",
+            "🧠 Summary: Researchers have developed a light-activated RNA base editor (PA-rABE) that offers precise and reversible control over gene expression.  This addresses the key challenge of controlling therapeutic gene expression in gene therapy.  Unlike existing methods, PA-rABE uses light to activate a split ADAR2 enzyme, allowing for controlled adenosine-to-inosine RNA editing only when exposed to blue light.  This minimizes off-target effects and allows for simultaneous activation or inactivation of multiple genes.  Experiments demonstrated successful gene editing in vitro and in vivo, including restoring F9 gene expression in hemophilia B mice.  This technology represents a significant advancement in safe and tunable gene therapies, offering potential for personalized treatment based on individual patient needs.\n",
+            "\n"
+          ]
+        }
+      ],
+      "source": [
+        "\n",
+        "# Install necessary libraries\n",
+        "!pip install -q langchain langchain-google-genai google-generativeai\n",
+        "\n",
+        "# Import libraries\n",
+        "import os\n",
+        "import google.generativeai as genai\n",
+        "from langchain.prompts import PromptTemplate\n",
+        "from langchain_google_genai import ChatGoogleGenerativeAI\n",
+        "from langchain.chains import LLMChain\n",
+        "from langchain.memory import ConversationBufferMemory\n",
+        "\n",
+        "# Set your Gemini API Key here\n",
+        "os.environ[\"GOOGLE_API_KEY\"] = \"AIzaSyBNbADhbEvFQHKV4SogbBK1zW8oQfwSsRE\"\n",
+        "\n",
+        "# Configure Gemini\n",
+        "genai.configure(api_key=os.environ[\"GOOGLE_API_KEY\"])\n",
+        "\n",
+        "# Create the Chat Model\n",
+        "llm = ChatGoogleGenerativeAI(\n",
+        "    model=\"models/gemini-1.5-pro-latest\",  # ✅ Correct model name!\n",
+        "    temperature=0.7\n",
+        ")\n",
+        "\n",
+        "# Create memory for conversation\n",
+        "memory = ConversationBufferMemory(memory_key=\"chat_history\", return_messages=True)\n",
+        "\n",
+        "# Create a Prompt Template\n",
+        "prompt = PromptTemplate(\n",
+        "    input_variables=[\"news\"],\n",
+        "    template=\"Summarize the following news article:\\n{news}\"\n",
+        ")\n",
+        "\n",
+        "# Build the chain\n",
+        "chain = LLMChain(\n",
+        "    llm=llm,\n",
+        "    prompt=prompt,\n",
+        "    memory=memory\n",
+        ")\n",
+        "\n",
+        "# Function to chat with chatbot\n",
+        "def chat_with_bot():\n",
+        "    while True:\n",
+        "        news_input = input(\"📰 Enter news text to summarize (or type 'exit' to quit): \")\n",
+        "        if news_input.lower() == 'exit':\n",
+        "            print(\"👋 Goodbye!\")\n",
+        "            break\n",
+        "        response = chain.invoke({\"news\": news_input})\n",
+        "        print(f\"🧠 Summary: {response['text']}\\n\")\n",
+        "\n",
+        "# Start chatting!\n",
+        "chat_with_bot()"
+      ]
+    }
+  ]
+}
